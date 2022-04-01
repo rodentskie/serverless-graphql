@@ -1,0 +1,39 @@
+service: cdktf-test
+frameworkVersion: "3"
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  memorySize: 2048
+  timeout: 15
+  region: ap-southeast-1
+  vpc:
+    securityGroupIds:
+      - sg-0a198e79f9bf5de42
+    subnetIds:
+      - subnet-09eea3716061cf761
+      - subnet-00db27dcf7c2b8523
+      - subnet-044d4d73ee6657bc0
+  deploymentBucket:
+    name: onewallet-cdktf-test
+
+functions:
+  hello:
+    handler: index.handler
+    events:
+      - http:
+          path: /graphql
+          method: post
+          cors: true
+      - http:
+          path: /graphql
+          method: get
+          cors: true
+    environment:
+      PORT: 3050
+      MONGO_URI: mongodb+srv://onewallet_user_test:TNsK2IlOyHg3a3VuaAH3@rod-cdktf-test.p8asv.mongodb.net/?ssl=true&authSource=admin
