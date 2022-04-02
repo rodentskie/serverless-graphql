@@ -1,9 +1,10 @@
-import { connect, disconnect } from "mongoose";
-import dotenv from "dotenv";
+import { connect, disconnect } from 'mongoose';
+import dotenv from 'dotenv';
+
 dotenv.config();
 
 const start = async () => {
-  const uri: string = process.env.MONGO_URI || `mongodb://localhost/test`;
+  const uri: string = process.env.MONGO_URI || 'mongodb://localhost/test';
 
   await connect(uri, {
     bufferCommands: false,

@@ -1,14 +1,10 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "apollo-server-core": "^3.5.0",
     "apollo-server-errors": "^3.3.1",
@@ -21,9 +17,5 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.5",
     "typescript": "^4.3.5"
-  },
-  "devDependencies": {
-    "serverless-offline": "^8.5.0",
-    "serverless-plugin-typescript": "^2.1.1"
   }
 }

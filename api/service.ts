@@ -1,15 +1,17 @@
-import { ApolloServer, gql } from "apollo-server-lambda";
-import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
-import dotenv from "dotenv";
-import { sign } from "jsonwebtoken";
-import AccountModel from "./models/accounts";
-import * as db from "./data";
-import { UserInputError } from "apollo-server-errors";
-import { hash, genSalt } from "bcrypt";
-import { generateId, EntityType } from "./functions/generate-binary-id";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { ApolloServer, gql } from 'apollo-server-lambda';
+import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
+import dotenv from 'dotenv';
+import { sign } from 'jsonwebtoken';
+import AccountModel from './models/accounts';
+import * as db from './data';
+import { UserInputError } from 'apollo-server-errors';
+import { hash, genSalt } from 'bcrypt';
+import { generateId, EntityType } from './functions/generate-binary-id';
 
 dotenv.config();
-const PW: string = process.env.TOKEN_PW || "mfmsosjwpxwszyzknnktjdvwqjspsqpw";
+const PW: string = process.env.TOKEN_PW || 'mfmsosjwpxwszyzknnktjdvwqjspsqpw';
 
 const generateToken = (data: any) => {
   const token: string = sign({ data }, PW);
@@ -53,20 +55,21 @@ const start = () => {
 
   const resolvers = {
     Query: {
-      hello: () => "Hello One world!",
+      hello: () => 'Hello One world!',
     },
     Mutation: {
       signUp: async (_: never, data: SignUpInput) => {
         const { input } = data;
-        const { emailAddress, firstName, lastName, password } = input;
+        const {
+          emailAddress, firstName, lastName, password,
+        } = input;
         const id = generateId(EntityType.Account);
 
         const emailExists = await AccountModel.exists({
           emailAddress,
         });
 
-        if (emailExists)
-          throw new UserInputError("Email address already used.");
+        if (emailExists) throw new UserInputError('Email address already used.');
 
         const user = await AccountModel.create({
           id,

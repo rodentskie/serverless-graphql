@@ -1,16 +1,14 @@
-import exitHook from "async-exit-hook";
-import * as server from "./service";
+import exitHook from 'async-exit-hook';
+import * as server from './service';
 
-const delay = async (sec: number) => {
-  return new Promise((resolve) => setTimeout(resolve, sec * 1000));
-};
+const delay = async (sec: number) => new Promise((resolve) => setTimeout(resolve, sec * 1000));
 
 const apolloServer = server.start();
 
 const handler = apolloServer.createHandler({
   expressGetMiddlewareOptions: {
     cors: {
-      origin: "*",
+      origin: '*',
       credentials: true,
     },
   },
