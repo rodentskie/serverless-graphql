@@ -98,16 +98,13 @@ js_library(
 container_image(
     name = "docker",
     base = "@base_node//image",
+    cmd = ["/usr/src/app/index.handler"],
     data_path = ".",
     directory = "/usr/src/app",
-    entrypoint = [
-        "sh",
-        "/usr/src/app/start.sh",
-    ],
     files = [
         ":image",
         ":package.json",
-        ":start.sh",
+        "@npm//:node_modules",
     ],
     repository = "serverless-graphql",
     stamp = True,
@@ -121,5 +118,5 @@ container_push(
     image = ":docker",
     registry = "663242346353.dkr.ecr.ap-southeast-1.amazonaws.com",
     repository = "rod-test",
-    tag = "001",
+    tag = "008",
 )
