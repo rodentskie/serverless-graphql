@@ -1,5 +1,5 @@
 workspace(
-    name = "graph_hov_be_onboarding",
+    name = "serverless-graphql",
     managed_directories = {"@npm": ["npm/node_modules"]},
 )
 

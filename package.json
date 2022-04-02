@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "dev": "nodemon api/index.ts",
-    "get": "cdktf get"
+    "get": "cdktf get",
+    "lint:api": "cd api && eslint . --ext .ts",
+    "lint:api-fix": "cd api && eslint . --ext .ts --fix"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,7 @@
     "@types/node": "^17.0.21",
     "@types/ramda": "^0.27.44",
     "@types/supertest": "^2.0.11",
+    "serverless-offline": "^8.5.0",
     "@typescript-eslint/eslint-plugin": "^4.28.4",
     "@typescript-eslint/parser": "^4.28.4",
     "apollo-server-core": "^3.5.0",
