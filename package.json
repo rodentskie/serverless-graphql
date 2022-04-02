@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "dev": "nodemon api/index.ts",
-    "get": "cdktf get"
+    "get": "cdktf get",
+    "postinstall": "npm run get"
   },
   "repository": {
     "type": "git",
