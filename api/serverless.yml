@@ -20,7 +20,7 @@ provider:
 
 functions:
   hello:
-    image: 663242346353.dkr.ecr.ap-southeast-1.amazonaws.com/rod-test:0020
+    image: 663242346353.dkr.ecr.ap-southeast-1.amazonaws.com/rod-test:0022
     events:
       - http:
           path: /graphql
