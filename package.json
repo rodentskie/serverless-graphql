@@ -7,7 +7,8 @@
     "get": "cdktf get",
     "lint:api": "cd api && eslint . --ext .ts",
     "lint:api-fix": "cd api && eslint . --ext .ts --fix",
-    "deploy:api": "cd api && sls deploy"
+    "deploy:api": "cd api && sls deploy",
+    "build:api": "cd api && tsc"
   },
   "repository": {
     "type": "git",
