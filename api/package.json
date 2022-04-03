@@ -1,9 +1,12 @@
 {
   "name": "api",
   "version": "1.0.0",
+  "description": "Serverless function",
   "main": "index.js",
-  "scripts": {
-    "start": "node index"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodentskie/serverless-graphql.git"
   },
   "dependencies": {
     "apollo-server-core": "^3.5.0",

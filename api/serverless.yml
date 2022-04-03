@@ -1,9 +1,5 @@
-service: cdktf-test
+service: cdktf-test-ecr
 frameworkVersion: "3"
-
-plugins:
-  - serverless-plugin-typescript
-  - serverless-offline
 
 provider:
   name: aws
@@ -24,7 +20,7 @@ provider:
 
 functions:
   hello:
-    handler: index.handler
+    image: 663242346353.dkr.ecr.ap-southeast-1.amazonaws.com/rod-test:0022
     events:
       - http:
           path: /graphql

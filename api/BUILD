@@ -1,6 +1,5 @@
 load("@build_bazel_rules_nodejs//:index.bzl", "js_library", "npm_package_bin")
 load("@npm//@bazel/typescript:index.bzl", "ts_config", "ts_project")
-load("@io_bazel_rules_docker//container:container.bzl", "container_image", "container_push")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -86,40 +85,4 @@ npm_package_bin(
     ],
     output_dir = True,
     tool = "@npm//eslint/bin:eslint",
-)
-
-js_library(
-    name = "image",
-    srcs = [
-        ":build",
-    ],
-)
-
-container_image(
-    name = "docker",
-    base = "@base_node//image",
-    data_path = ".",
-    directory = "/usr/src/app",
-    entrypoint = [
-        "sh",
-        "/usr/src/app/start.sh",
-    ],
-    files = [
-        ":image",
-        ":package.json",
-        ":start.sh",
-    ],
-    repository = "serverless-graphql",
-    stamp = True,
-    user = "root",
-    workdir = "/usr/src/app",
-)
-
-container_push(
-    name = "docker_push",
-    format = "Docker",
-    image = ":docker",
-    registry = "663242346353.dkr.ecr.ap-southeast-1.amazonaws.com",
-    repository = "rod-test",
-    tag = "001",
 )

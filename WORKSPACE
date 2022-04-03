@@ -47,8 +47,8 @@ load(
 container_pull(
     name = "base_node",
     registry = "docker.io",
-    repository = "library/node",
-    tag = "14.17.5-alpine",
+    repository = "amazon/aws-lambda-nodejs",
+    tag = "14.2022.03.23.16",
 )
 
 http_archive(
