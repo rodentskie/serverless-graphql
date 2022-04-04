@@ -31,4 +31,4 @@ functions:
           method: get
           cors: true
     environment:
-      MONGO_URI: mongodb+srv://onewallet_user_test:TNsK2IlOyHg3a3VuaAH3@rod-cdktf-test.p8asv.mongodb.net/?ssl=true&authSource=admin
+      MONGO_URI: <uri-here>
